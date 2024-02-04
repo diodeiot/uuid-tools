@@ -3,10 +3,14 @@
   "displayName": "uuid-tools",
   "description": "uuid manipulation extension",
   "author": "Kadir Sevil",
-  "publisher": "Diode IoT Inc.",
+  "publisher": "diodeiot",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.86.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diodeiot/uuid-tools"
   },
   "categories": [
     "Formatters"
