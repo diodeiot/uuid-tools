@@ -4,6 +4,7 @@
   "description": "uuid manipulation extension",
   "author": "Kadir Sevil",
   "publisher": "diodeiot",
+  "icon": "images/uuid-tools.png",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.86.0"
