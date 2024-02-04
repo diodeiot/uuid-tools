@@ -1,0 +1,54 @@
+{
+  "name": "uuid-tools",
+  "displayName": "uuid-tools",
+  "description": "uuid manipulation extension",
+  "author": "Kadir Sevil",
+  "publisher": "Diode IoT Inc.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "uuid-tools.uuidgen",
+        "title": "uuidgen"
+      },
+      {
+        "command": "uuid-tools.uuid2hex",
+        "title": "uuid2hex"
+      },
+      {
+        "command": "uuid-tools.uuid2arrc",
+        "title": "uuid2arrc"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
+}
