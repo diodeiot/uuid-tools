@@ -5,7 +5,7 @@
   "author": "Kadir Sevil",
   "publisher": "diodeiot",
   "icon": "images/uuid-tools.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.86.0"
   },
