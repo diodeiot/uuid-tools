@@ -14,9 +14,14 @@
     "url": "https://github.com/diodeiot/uuid-tools"
   },
   "categories": [
-    "Formatters"
+    "Formatters",
+    "Snippets"
   ],
-  "keywords": ["uuid","guid","snippet"],
+  "keywords": [
+    "uuid",
+    "guid",
+    "snippet"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
