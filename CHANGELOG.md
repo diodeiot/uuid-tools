@@ -9,3 +9,11 @@ All notable changes to this project will be documented in this file.
 ## Version 1.0.1
 
 - Added extension icon
+  
+## Version 2.0.0
+
+- Added case configuration support
+- Selected uuid string can contain double-quote and single-quote
+- Removed c array definition from uuid to array conversion
+- Removed double-quote on the generated uuid string
+- Added v1,v2,v3,v5,v6,v7 support

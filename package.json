@@ -1,11 +1,11 @@
 {
   "name": "uuid-tools",
-  "displayName": "uuid-tools",
-  "description": "uuid manipulation extension",
-  "version": "1.0.1",
+  "displayName": "UUID Tools",
+  "description": "uuid generation/manipulation extension",
+  "version": "2.0.0",
   "publisher": "diodeiot",
   "engines": {
-    "vscode": "^1.86.0"
+    "vscode": "^1.30.0"
   },
   "icon": "images/uuid-tools.png",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -148,7 +148,7 @@
     "@types/node": "18.x",
     "@types/uuid": "^9.0.8",
     "@types/uuid-with-v6": "^1.1.2",
-    "@types/vscode": "^1.86.0",
+    "@types/vscode": "^1.30.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "@vscode/test-cli": "^0.0.4",
