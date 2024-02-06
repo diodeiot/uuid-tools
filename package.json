@@ -33,18 +33,98 @@
   "contributes": {
     "commands": [
       {
+        "command": "uuid-tools.uuidNilGen",
+        "title": "uuid-tools: Generate nil UUID"
+      },
+      {
+        "command": "uuid-tools.uuidv1gen",
+        "title": "uuid-tools: Generate UUIDv1"
+      },
+      {
+        "command": "uuid-tools.uuidv2gen",
+        "title": "uuid-tools: Generate UUIDv2"
+      },
+      {
+        "command": "uuid-tools.uuidv3gen",
+        "title": "uuid-tools: Generate UUIDv3"
+      },
+      {
+        "command": "uuid-tools.uuidv4gen",
+        "title": "uuid-tools: Generate UUIDv4"
+      },
+      {
+        "command": "uuid-tools.uuidv5gen",
+        "title": "uuid-tools: Generate UUIDv5"
+      },
+      {
+        "command": "uuid-tools.uuidv6gen",
+        "title": "uuid-tools: Generate UUIDv6"
+      },
+      {
+        "command": "uuid-tools.uuidv7gen",
+        "title": "uuid-tools: Generate UUIDv7"
+      },
+      {
         "command": "uuid-tools.uuidgen",
-        "title": "uuidgen"
+        "title": "uuid-tools: Generate UUID"
       },
       {
         "command": "uuid-tools.uuid2hex",
-        "title": "uuid2hex"
+        "title": "uuid-tools: Convert to hexadecimal"
       },
       {
         "command": "uuid-tools.uuid2arrc",
-        "title": "uuid2arrc"
+        "title": "uuid-tools: Convert to bytes"
       }
-    ]
+    ],
+    "configuration": {
+      "properties": {
+        "uuid-tools.uuid-version": {
+          "default": "v4",
+          "description": "Version of the UUID to generate",
+          "enum": [
+            "v1",
+            "v2",
+            "v3",
+            "v4",
+            "v5",
+            "v6",
+            "v7"
+          ]
+        },
+        "uuid-tools.v2.domain": {
+          "description": "Domain of the UUID v2",
+          "type": "string",
+          "default": null
+        },
+        "uuid-tools.v2.identifier": {
+          "description": "Identifier of the UUID v2",
+          "type": "string",
+          "default": null
+        },
+        "uuid-tools.v3.namespace": {
+          "description": "Namespace of the UUID v3",
+          "type": "string",
+          "default": null
+        },
+        "uuid-tools.v3.name": {
+          "description": "Name of the UUID v3",
+          "type": "string",
+          "default": null
+        },
+        "uuid-tools.v5.namespace": {
+          "description": "Namespace of the UUID v5",
+          "type": "string",
+          "default": null
+        },
+        "uuid-tools.v5.name": {
+          "description": "Name of the UUID v5",
+          "type": "string",
+          "default": null
+        }
+      },
+      "title": "UUID Tools Configuration"
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -57,6 +137,8 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/uuid": "^9.0.8",
+    "@types/uuid-with-v6": "^1.1.2",
     "@types/vscode": "^1.86.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
@@ -66,6 +148,10 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@logmedaily/aekatva": "^1.0.0",
+    "uuid": "^9.0.1",
+    "uuid-with-v6": "^2.0.0",
+    "uuidv7": "^0.6.3",
     "zod": "^3.22.4"
   }
 }
