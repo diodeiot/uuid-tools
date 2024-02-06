@@ -253,6 +253,18 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	};
 
+	const extractUUID = (str: string) => {
+		str = str.trim();
+		if (str.startsWith("\"") || str.startsWith("\'")) {
+			str = str.slice(1);
+		}
+		if (str.endsWith("\"") || str.endsWith("\'")) {
+			str = str.slice(0, str.length - 1);
+		}
+		str = str.trim();
+		return UUID.UUIDSchema.parse(str);
+	};
+
 	context.subscriptions.push(vscode.commands.registerCommand("uuid-tools.uuidNilGen", () => {
 		const uuid = UUID.uuidNil();
 		console.log("uuidNilGen: uuid=", uuid);
@@ -289,7 +301,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				let uuid;
 				try {
-					uuid = UUID.UUIDSchema.parse(selectedText);
+					uuid = extractUUID(selectedText);
 				} catch (error) {
 					vscode.window.showErrorMessage("invalid uuid");
 					return;
@@ -314,7 +326,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				let uuid;
 				try {
-					uuid = UUID.UUIDSchema.parse(selectedText);
+					uuid = extractUUID(selectedText);
 				} catch (error) {
 					vscode.window.showErrorMessage("invalid uuid");
 					return;
