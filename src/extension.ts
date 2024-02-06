@@ -142,7 +142,19 @@ export function activate(context: vscode.ExtensionContext) {
 		return custom_namespace;
 	};
 
+	const setCase = (str: string) => {
+		const config = getConfig();
+		if (config.case === "upper") {
+			str = str.toUpperCase();
+		}
+		else if (config.case === "lower") {
+			str = str.toLowerCase();
+		}
+		return str;
+	};
+
 	const placeUUID = (uuid: string) => {
+		uuid = setCase(uuid);
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			editor.edit(editBuilder => {
@@ -306,7 +318,8 @@ export function activate(context: vscode.ExtensionContext) {
 					vscode.window.showErrorMessage("invalid uuid");
 					return;
 				}
-				const hex = UUID.uuid2Hex(uuid);
+				let hex = UUID.uuid2Hex(uuid);
+				hex = setCase(hex);
 				editBuilder.replace(selection, hex);
 			});
 		}
@@ -338,6 +351,7 @@ export function activate(context: vscode.ExtensionContext) {
 				bytes.forEach(b => arrStr += "0x" + b.toString(16).toUpperCase() + ", ");
 				arrStr = arrStr.substring(0, arrStr.length - 2);
 
+				arrStr = setCase(arrStr);
 				editBuilder.replace(selection, arrStr);
 			});
 		}

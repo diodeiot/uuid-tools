@@ -81,7 +81,6 @@
     "configuration": {
       "properties": {
         "uuid-tools.uuid-version": {
-          "default": "v4",
           "description": "Version of the UUID to generate",
           "enum": [
             "v1",
@@ -91,7 +90,16 @@
             "v5",
             "v6",
             "v7"
-          ]
+          ],
+          "default": "v4"
+        },
+        "uuid-tools.case": {
+          "description": "Case of the generated uuid string",
+          "enum": [
+            "upper",
+            "lower"
+          ],
+          "default": "upper"
         },
         "uuid-tools.v2.domain": {
           "description": "Domain of the UUID v2",

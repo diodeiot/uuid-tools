@@ -2,8 +2,11 @@ import * as vscode from "vscode";
 
 export type UUIDVersion = "v1" | "v2" | "v3" | "v4" | "v5" | "v6" | "v7";
 
+export type Case = "upper" | "lower";
+
 export type Config = {
     uuid_version: UUIDVersion
+    case: Case
     v2: {
         domain?: string
         identifier?: string
@@ -22,6 +25,7 @@ export function getConfig(): Config {
     const c = vscode.workspace.getConfiguration("uuid-tools");
     const config: Config = {
         uuid_version: c.get("uuid-version") as UUIDVersion,
+        case: c.get("case") as Case,
         v2: {
             domain: c.get("v2.domain") as string,
             identifier: c.get("v2.identifier") as string,
