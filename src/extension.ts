@@ -147,12 +147,11 @@ export function activate(context: vscode.ExtensionContext) {
 		if (editor) {
 			editor.edit(editBuilder => {
 				const selection = editor.selection;
-				const uuidStr = "\"" + uuid + "\"";
 				if (selection.isEmpty) {
-					editBuilder.insert(editor.selection.start, uuidStr);
+					editBuilder.insert(editor.selection.start, uuid);
 				}
 				else {
-					editBuilder.replace(selection, uuidStr);
+					editBuilder.replace(selection, uuid);
 				}
 			});
 		}
