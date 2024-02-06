@@ -16,6 +16,7 @@
   "categories": [
     "Formatters"
   ],
+  "keywords": ["uuid","guid","snippet"],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
