@@ -322,10 +322,9 @@ export function activate(context: vscode.ExtensionContext) {
 				const hex = UUID.uuid2Hex(uuid);
 				const bytes = Buffer.from(hex, "hex");
 
-				let arrStr = "const uint8_t uuid[16]={";
+				let arrStr = "";
 				bytes.forEach(b => arrStr += "0x" + b.toString(16).toUpperCase() + ", ");
 				arrStr = arrStr.substring(0, arrStr.length - 2);
-				arrStr += "};";
 
 				editBuilder.replace(selection, arrStr);
 			});
