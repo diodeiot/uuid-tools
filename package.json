@@ -2,17 +2,22 @@
   "name": "uuid-tools",
   "displayName": "uuid-tools",
   "description": "uuid manipulation extension",
-  "author": "Kadir Sevil",
-  "publisher": "diodeiot",
-  "icon": "images/uuid-tools.png",
   "version": "1.0.1",
+  "publisher": "diodeiot",
   "engines": {
     "vscode": "^1.86.0"
   },
+  "icon": "images/uuid-tools.png",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Kadir Sevil",
   "repository": {
     "type": "git",
     "url": "https://github.com/diodeiot/uuid-tools"
   },
+  "bugs": {
+    "url": "https://github.com/diodeiot/uuid-tools/issues"
+  },
+  "homepage": "https://github.com/diodeiot/uuid-tools",
   "categories": [
     "Formatters",
     "Snippets"
@@ -20,7 +25,8 @@
   "keywords": [
     "uuid",
     "guid",
-    "snippet"
+    "snippet",
+    "format"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
