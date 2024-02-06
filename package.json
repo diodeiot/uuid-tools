@@ -26,7 +26,8 @@
     "uuid",
     "guid",
     "snippet",
-    "format"
+    "format",
+    "rfc4122"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
