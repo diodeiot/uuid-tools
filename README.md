@@ -30,25 +30,36 @@ This extension provides several commands in the Command Palette (<kbd>F1</kbd> o
 
 > **Note:** Selected uuid strings can contain space, double-quote and single-quote.
 
+## Menus
+- **uuid-tools: Generate UUID**: Generates uuid specified in the preferences.
+  
+## Usage
+### UUID Generation
+There are 3 different ways to generate UUID
+- Set cursor and run the UUID generation command, this will generate at the cursor.
+- Set multi cursors and run the UUID generation command, this will generate UUIDs at each cursor.
+> **Note:** For the multiple UUID generation, UUID generation behavior can be controlled through `uuid-tools.multi-cursor-behavior` option.
+- Select any text that includes any number of UUIDs and run the UUID generation command, this will replace existing UUIDs with the new ones.
+
 ## Options
-| Option                     | Description                       | Default |
-| -------------------------- | --------------------------------- | ------- |
-| `uuid-tools.uuid-version`  | Version of the UUID to generate   | v4      |
-| `uuid-tools.case`          | Case of the generated UUID string | upper   |
-| `uuid-tools.v2.domain`     | Domain of the UUID v2             | null    |
-| `uuid-tools.v2.identifier` | Identifier of the UUID v2         | null    |
-| `uuid-tools.v3.namespace`  | Namespace of the UUID v3          | null    |
-| `uuid-tools.v3.name`       | Name of the UUID v3               | null    |
-| `uuid-tools.v5.namespace`  | Namespace of the UUID v5          | null    |
-| `uuid-tools.v5.name`       | Name of the UUID v5               | null    |
+| Option                             | Description                                          | Default |
+| ---------------------------------- | ---------------------------------------------------- | ------- |
+| `uuid-tools.uuid-version`          | Version of the UUID to generate                      | v4      |
+| `uuid-tools.case`                  | Case of the generated UUID string                    | upper   |
+| `uuid-tools.multi-cursor-behavior` | UUID generation behavior when multi-cursor is active | unique  |
+| `uuid-tools.v2.domain`             | Domain of the UUID v2                                | null    |
+| `uuid-tools.v2.identifier`         | Identifier of the UUID v2                            | null    |
+| `uuid-tools.v3.namespace`          | Namespace of the UUID v3                             | null    |
+| `uuid-tools.v3.name`               | Name of the UUID v3                                  | null    |
+| `uuid-tools.v5.namespace`          | Namespace of the UUID v5                             | null    |
+| `uuid-tools.v5.name`               | Name of the UUID v5                                  | null    |
 
 ## Release Notes
 
-### 2.0.0
+### Version 2.1.0
 
-- Added case configuration support
-- Selected uuid string can contain double-quote and single-quote
-- Removed c array definition from uuid to array conversion
-- Removed double-quote on the generated uuid string
-- Added v1,v2,v3,v5,v6,v7 support
+- Added multi-cursor UUID generation
+- Added generating UUIDs in place of UUIDs in the selection
+- Added menu command for UUID generation
+
 ---

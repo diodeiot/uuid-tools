@@ -2,7 +2,7 @@
   "name": "uuid-tools",
   "displayName": "UUID Tools",
   "description": "UUID generation/manipulation (v1, v2, v3, v4, v5, v6, v7)",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "publisher": "diodeiot",
   "engines": {
     "vscode": "^1.30.0"
