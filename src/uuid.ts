@@ -9,6 +9,8 @@ export const NAMESPACE_URL = "6BA7B811-9DAD-11D1-80B4-00C04FD430C8";
 export const NAMESPACE_ISO_OID = "6BA7B812-9DAD-11D1-80B4-00C04FD430C8";
 export const NAMESPACE_X500_DN = "6BA7B814-9DAD-11D1-80B4-00C04FD430C8";
 
+export const REGEXP = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/g;
+
 export const UUIDSchema = z
     .string()
     .trim()

@@ -101,6 +101,14 @@
           ],
           "default": "upper"
         },
+        "uuid-tools.multi-cursor-behavior": {
+          "description": "UUID generation behavior when multi-cursor is active",
+          "enum": [
+            "repeat",
+            "unique"
+          ],
+          "default": "unique"
+        },
         "uuid-tools.v2.domain": {
           "description": "Domain of the UUID v2",
           "type": "string",

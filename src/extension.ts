@@ -6,6 +6,12 @@ import { getConfig } from "./config";
 type NameSpaceTarget = "v3" | "v5";
 type NameTarget = NameSpaceTarget;
 
+function replace(original: string, start: number, end: number, w: string) {
+	const b = original.substring(0, start);
+	const e = original.substring(end);
+	return b + w + e;
+}
+
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activated");
 
@@ -153,17 +159,32 @@ export function activate(context: vscode.ExtensionContext) {
 		return str;
 	};
 
-	const placeUUID = (uuid: string) => {
-		uuid = setCase(uuid);
+	const placeUUID = (generator: () => string) => {
+		let uuid = setCase(generator());
+		const msb = getConfig().multi_cursor_behavior;
+		const getUUID = () => {
+			if (msb === "unique") {
+				uuid = setCase(generator());
+			}
+			return uuid;
+		};
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			editor.edit(editBuilder => {
-				const selection = editor.selection;
-				if (selection.isEmpty) {
-					editBuilder.insert(editor.selection.start, uuid);
+				if (editor.selection.isEmpty) {
+					editor.selections.forEach((selection) => {
+						editBuilder.insert(selection.start, getUUID());
+					});
 				}
 				else {
-					editBuilder.replace(selection, uuid);
+					let sel = editor.document.getText(editor.selection);
+					const matches = [...sel.matchAll(UUID.REGEXP)];
+					matches.forEach((match) => {
+						if (match.index != null) {
+							sel = replace(sel, match.index, match.index + match[0].length, getUUID());
+						}
+					});
+					editBuilder.replace(editor.selection, sel);
 				}
 			});
 		}
@@ -173,9 +194,10 @@ export function activate(context: vscode.ExtensionContext) {
 	};
 
 	const uuidv1genHandler = () => {
-		const uuid = UUID.uuidv1gen();
-		console.log("uuidv1gen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidv1gen();
+		};
+		placeUUID(generator);
 	};
 
 	const uuidv2genHandler = async () => {
@@ -189,9 +211,10 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		const uuid = UUID.uuidv2gen(domain, identifier);
-		console.log("uuidv2gen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidv2gen(domain, identifier);
+		}
+		placeUUID(generator);
 	};
 
 	const uuidv3genHandler = async () => {
@@ -203,15 +226,18 @@ export function activate(context: vscode.ExtensionContext) {
 		if (name == null) {
 			return;
 		}
-		const uuid = UUID.uuidv3gen(namespace, name);
-		console.log("uuidv3gen: namespace=", namespace, "name=", name, "uuid=", uuid);
-		placeUUID(uuid);
+
+		const generator = () => {
+			return UUID.uuidv3gen(namespace, name);
+		};
+		placeUUID(generator);
 	};
 
 	const uuidv4genHandler = () => {
-		const uuid = UUID.uuidv4gen();
-		console.log("uuidv4gen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidv4gen();
+		};
+		placeUUID(generator);
 	};
 
 	const uuidv5genHandler = async () => {
@@ -223,21 +249,25 @@ export function activate(context: vscode.ExtensionContext) {
 		if (name == null) {
 			return;
 		}
-		const uuid = UUID.uuidv5gen(namespace, name);
-		console.log("uuidv5gen: namespace=", namespace, "name=", name, "uuid=", uuid);
-		placeUUID(uuid);
+
+		const generator = () => {
+			return UUID.uuidv5gen(namespace, name);
+		};
+		placeUUID(generator);
 	};
 
 	const uuidv6genHandler = () => {
-		const uuid = UUID.uuidv6gen();
-		console.log("uuidv6gen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidv6gen();
+		}
+		placeUUID(generator);
 	};
 
 	const uuidv7genHandler = () => {
-		const uuid = UUID.uuidv7gen();
-		console.log("uuidv7gen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidv7gen();
+		}
+		placeUUID(generator);
 	};
 
 	const uuidgenHandler = () => {
@@ -278,9 +308,10 @@ export function activate(context: vscode.ExtensionContext) {
 	};
 
 	context.subscriptions.push(vscode.commands.registerCommand("uuid-tools.uuidNilGen", () => {
-		const uuid = UUID.uuidNil();
-		console.log("uuidNilGen: uuid=", uuid);
-		placeUUID(uuid);
+		const generator = () => {
+			return UUID.uuidNil();
+		}
+		placeUUID(generator);
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand("uuid-tools.uuidv1gen", uuidv1genHandler));
