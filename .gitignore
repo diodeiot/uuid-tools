@@ -7,6 +7,3 @@ node_modules
 #macos
 .DS_Store
 **/.DS_Store
-
-#temporary files
-experimental_codes.ts
