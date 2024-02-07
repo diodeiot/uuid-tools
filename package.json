@@ -78,6 +78,15 @@
         "title": "uuid-tools: Convert to bytes"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "uuid-tools.uuidgen",
+          "group": "uuid"
+        }
+      ]
+    },
     "configuration": {
       "properties": {
         "uuid-tools.uuid-version": {
