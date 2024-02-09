@@ -56,10 +56,13 @@ There are 3 different ways to generate UUID
 
 ## Release Notes
 
-### Version 2.1.0
+### Version 2.1.1
 
-- Added multi-cursor UUID generation
-- Added generating UUIDs in place of UUIDs in the selection
-- Added menu command for UUID generation
+- Added officials
+
+## Development
+Maintainer Kadir Sevil <<kadir.sevil@diodeiot.com>>
+
+Publisher Diode IoT Inc. <<info@diodeiot.com>>
 
 ---

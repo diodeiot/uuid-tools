@@ -23,3 +23,7 @@ All notable changes to this project will be documented in this file.
 - Added multi-cursor UUID generation
 - Added generating UUIDs in place of UUIDs in the selection
 - Added menu command for UUID generation
+
+## Version 2.1.1
+
+- Added officials
