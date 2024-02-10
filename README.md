@@ -56,13 +56,17 @@ There are 3 different ways to generate UUID
 
 ## Release Notes
 
-### Version 2.1.1
+### Version 2.1.2
 
-- Added officials
+- Added Contribution section
 
 ## Development
 Maintainer Kadir Sevil <<kadir.sevil@diodeiot.com>>
 
 Publisher Diode IoT Inc. <<info@diodeiot.com>>
+
+## Contribution
+
+Contributions to the repository are welcome.
 
 ---

@@ -27,3 +27,7 @@ All notable changes to this project will be documented in this file.
 ## Version 2.1.1
 
 - Added officials
+
+## Version 2.1.2
+
+- Added Contribution section
