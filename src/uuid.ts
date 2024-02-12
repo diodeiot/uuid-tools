@@ -58,3 +58,26 @@ export function uuid2Hex(uuid: string): string {
     uuid = uuid.toUpperCase();
     return uuid.replaceAll("-", "");
 }
+
+export function fromHexBytes(str: string): string {
+    const uuidStr = str.slice(0, 8) + "-" + str.slice(8, 12) + "-" + str.slice(12, 16) + "-" + str.slice(16, 20) + "-" + str.slice(20);
+    return UUIDSchema.parse(uuidStr);
+}
+
+export function fromText(str: string): string[] {
+    str = str.replace(/0x/gi, "");
+    str = str.replace(/[^0-9a-fA-F]+/g, "");
+    str = str.toUpperCase();
+
+    const matches = str.match(/[0-9a-fA-F]{32}/g) ?? [];
+    let foundUUIDs: string[] = [];
+    for (const match of matches) {
+        try {
+            const uuid = fromHexBytes(match);
+            foundUUIDs.push(uuid);
+        } catch (error) {
+            break;
+        }
+    }
+    return foundUUIDs;
+}

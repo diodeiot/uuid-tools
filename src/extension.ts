@@ -387,6 +387,28 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 		}
 	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand("uuid-tools.fromText", () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			const selection = editor.selection;
+			const selectedText = editor.document.getText(selection);
+
+			console.log("searching possible uuids in the text...");
+			const foundUUIDs = UUID.fromText(selectedText);
+			console.log(`foundUUIDs=${foundUUIDs}`);
+			if (foundUUIDs.length < 1) {
+				return;
+			}
+			let newStr = "";
+			foundUUIDs.forEach(uuid => {
+				newStr += uuid + "\n";
+			});
+			editor.edit(editBuilder => {
+				editBuilder.replace(selection, newStr);
+			});
+		}
+	}));
 }
 
 export function deactivate() {

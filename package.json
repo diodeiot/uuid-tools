@@ -2,7 +2,7 @@
   "name": "uuid-tools",
   "displayName": "UUID Tools",
   "description": "UUID generation/manipulation (v1, v2, v3, v4, v5, v6, v7)",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "publisher": "diodeiot",
   "engines": {
     "vscode": "^1.30.0"
@@ -76,6 +76,10 @@
       {
         "command": "uuid-tools.uuid2arrc",
         "title": "uuid-tools: Convert to bytes"
+      },
+      {
+        "command": "uuid-tools.fromText",
+        "title": "uuid-tools: Construct UUID from string"
       }
     ],
     "menus": {

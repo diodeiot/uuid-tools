@@ -31,3 +31,7 @@ All notable changes to this project will be documented in this file.
 ## Version 2.1.2
 
 - Added Contribution section
+
+## Version 2.2.0
+
+- Added Feature: Constructing UUIDs from selected text that contains hex values. Text may contain spaces, commas, 0x prefixes.

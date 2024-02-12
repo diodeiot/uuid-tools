@@ -27,6 +27,7 @@ This extension provides several commands in the Command Palette (<kbd>F1</kbd> o
 - **uuid-tools: Generate UUID**: Generates uuid specified in the preferences.
 - **uuid-tools: Convert to hexadecimal**: Replaces selected uuid string with the equivalent hexadecimal representation.
 - **uuid-tools: Convert to bytes**: Replaces selected uuid string with the comma-seperated hexadecimal bytes.
+- **uuid-tools: Construct UUID from string**: Constructing UUIDs from selected text that contains hex values.
 
 > **Note:** Selected uuid strings can contain space, double-quote and single-quote.
 
@@ -56,9 +57,9 @@ There are 3 different ways to generate UUID
 
 ## Release Notes
 
-### Version 2.1.2
+### Version 2.2.0
 
-- Added Contribution section
+- Added Feature: Constructing UUIDs from selected text that contains hex values. Text may contain spaces, commas, 0x prefixes.
 
 ## Development
 Maintainer Kadir Sevil <<kadir.sevil@diodeiot.com>>
