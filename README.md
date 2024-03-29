@@ -4,9 +4,11 @@ uuid-tools is a vs-code extension that can generate v1,v2,v3,v4,v5,v6,v7 UUIDs
 and includes various useful uuid manipulation commands.
 
 ## Installation
-Open VS Code and press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> *or* <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open command palette, select **Install Extension** and type `uuid-tools`.
 
-Or launch VS Code Quick Open (<kbd>Ctrl</kbd> + <kbd>P</kbd> *or* <kbd>Cmd</kbd> + <kbd>P</kbd> ), paste the following command, and press enter.
+Open VS Code and press <kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> _or_ <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open command palette, select **Install Extension** and type `uuid-tools`.
+
+Or launch VS Code Quick Open (<kbd>Ctrl</kbd> + <kbd>P</kbd> _or_ <kbd>Cmd</kbd> + <kbd>P</kbd> ), paste the following command, and press enter.
+
 ```bash
 ext install uuid-tools
 ```
@@ -14,7 +16,8 @@ ext install uuid-tools
 You can also install directly from the Marketplace within Visual Studio Code, searching for `uuid-tools`.
 
 ## Commands
-This extension provides several commands in the Command Palette (<kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> *or* <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) for working with any files.
+
+This extension provides several commands in the Command Palette (<kbd>F1</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> _or_ <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) for working with any files.
 
 - **uuid-tools: Generate nil UUID**: Generates uuid string with all zeros.
 - **uuid-tools: Generate UUIDv1**: Generates version 1 uuid.
@@ -32,21 +35,26 @@ This extension provides several commands in the Command Palette (<kbd>F1</kbd> o
 > **Note:** Selected uuid strings can contain space, double-quote and single-quote.
 
 ## Menus
+
 - **uuid-tools: Generate UUID**: Generates uuid specified in the preferences.
-  
+
 ## Usage
+
 ### UUID Generation
+
 There are 3 different ways to generate UUID
+
 - Set cursor and run the UUID generation command, this will generate at the cursor.
 - Set multi cursors and run the UUID generation command, this will generate UUIDs at each cursor.
-> **Note:** For the multiple UUID generation, UUID generation behavior can be controlled through `uuid-tools.multi-cursor-behavior` option.
+  > **Note:** For the multiple UUID generation, UUID generation behavior can be controlled through `uuid-tools.multi-cursor-behavior` option.
 - Select any text that includes any number of UUIDs and run the UUID generation command, this will replace existing UUIDs with the new ones.
 
 ## Options
+
 | Option                             | Description                                          | Default |
 | ---------------------------------- | ---------------------------------------------------- | ------- |
 | `uuid-tools.uuid-version`          | Version of the UUID to generate                      | v4      |
-| `uuid-tools.case`                  | Case of the generated UUID string                    | upper   |
+| `uuid-tools.case`                  | Case of the generated UUID string                    | lower   |
 | `uuid-tools.multi-cursor-behavior` | UUID generation behavior when multi-cursor is active | unique  |
 | `uuid-tools.v2.domain`             | Domain of the UUID v2                                | null    |
 | `uuid-tools.v2.identifier`         | Identifier of the UUID v2                            | null    |
@@ -57,11 +65,12 @@ There are 3 different ways to generate UUID
 
 ## Release Notes
 
-### Version 2.2.0
+### Version 2.3.0
 
-- Added Feature: Constructing UUIDs from selected text that contains hex values. Text may contain spaces, commas, 0x prefixes.
+- Default case sensitivity changed to "lower" case.
 
 ## Development
+
 Maintainer Kadir Sevil <<kadir.sevil@diodeiot.com>>
 
 Publisher Diode IoT Inc. <<info@diodeiot.com>>

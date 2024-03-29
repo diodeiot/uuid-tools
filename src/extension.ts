@@ -67,19 +67,19 @@ export function activate(context: vscode.ExtensionContext) {
 		const ret = await vscode.window.showQuickPick([
 			{
 				label: "DNS",
-				description: UUID.NAMESPACE_DNS.toLowerCase(),
+				description: UUID.NAMESPACE_DNS,
 			},
 			{
 				label: "URL",
-				description: UUID.NAMESPACE_URL.toLowerCase(),
+				description: UUID.NAMESPACE_URL,
 			},
 			{
 				label: "ISO OID",
-				description: UUID.NAMESPACE_ISO_OID.toLowerCase(),
+				description: UUID.NAMESPACE_ISO_OID,
 			},
 			{
 				label: "X.500 DN",
-				description: UUID.NAMESPACE_X500_DN.toLowerCase(),
+				description: UUID.NAMESPACE_X500_DN,
 			},
 			{
 				label: "Custom",
@@ -379,7 +379,7 @@ export function activate(context: vscode.ExtensionContext) {
 				const bytes = Buffer.from(hex, "hex");
 
 				let arrStr = "";
-				bytes.forEach(b => arrStr += "0x" + b.toString(16).toUpperCase() + ", ");
+				bytes.forEach(b => arrStr += "0x" + b.toString(16) + ", ");
 				arrStr = arrStr.substring(0, arrStr.length - 2);
 
 				arrStr = setCase(arrStr);
